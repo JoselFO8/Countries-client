@@ -15,41 +15,29 @@ export default function Countries() {
   const [allCountries, setAllCountries] = useState([])
   const [flag, setFlag] = useState()
 
-  const [currentPage, setCurrentPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
   const [countriesPerPage, setCountriesPerPage] = useState(9);
   
   const state = useSelector((state) => state)
   const { countries, searchCountries} = state
-
-  const page = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
   
-  useEffect( () => {
-    setCurrentPage(1)
-    console.log(currentPage)
-  },[]);
-
 
   if(countries.length > 0 && allCountries.length === 0 && searchCountries.length === 0) {
     setFlag(true)
-    // setCurrentPage(1)
+    setCurrentPage(1)
     setAllCountries(countries)
   } else if(countries.length > 0 && searchCountries.length > 0 && flag === true) {
     setFlag(false)
-    // setCurrentPage(1)
+    setCurrentPage(1)
     setAllCountries(searchCountries)
   } else if(searchCountries !== allCountries && searchCountries.length > 0) {
-    // setCurrentPage(1)
+    setCurrentPage(1)
     setAllCountries(searchCountries)
   }
    
   useEffect( () => {
     dispatch(getCountries());
   },[dispatch]);
-
-
- 
 
   // ------------------------------ Paginacion ------------------------------ //
 
@@ -74,7 +62,9 @@ export default function Countries() {
   }
 
 
-  
+  const page = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
 
   // ------------------------------ Render ------------------------------ //
