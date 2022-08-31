@@ -16,8 +16,8 @@ export default function About() {
 
                 <div className={style.personalInf}>
                     <div className={style.name}>
-                        <h1 className={style.personalName}>Jose Luis Fernández Orjuela</h1>
-                        <h3 className={style.profession}>Estudiante de desarrollo web Full-Stack</h3>
+                        <h1 className={style.personalName}>Jose Fernández</h1>
+                        <h3 className={style.profession}>Full-Stack web developer</h3>
                     </div>
                     
                     <div className={style.personalInf_2}>
