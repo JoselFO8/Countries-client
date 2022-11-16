@@ -2,9 +2,11 @@ import axios from 'axios';
 
 import {GET_COUNTRIES, FILTER_COUNTRIES, ORDER_COUNTRIES, GET_COUNTRY_DETAIL, ADD_TOURIST_ACTIVITIES, GET_TOURIST_ACTIVITIES} from '../action-types/actionsTypes.js'
 
+const API_URL = process.env.API_URL
+
 export const getCountries = () => {
     return (dispatch) => {
-        fetch(`https://countries-2022.herokuapp.com/countries`)
+        fetch(`${API_URL}/countries`)
             .then(response => response.json())
             .then((recurso) => {
                 dispatch(
@@ -22,7 +24,7 @@ export const getCountries = () => {
 
 export const filterCountries = (argument) => {
     return (dispatch) => {
-        fetch(`https://countries-2022.herokuapp.com/countries`)
+        fetch(`${API_URL}/countries`)
             .then(response => response.json())
             .then((recurso) => {
                 dispatch(
@@ -48,7 +50,7 @@ export function orderCountries(type) {
 
 export function getCountryDetail(id) {
     return (dispatch) => {
-        axios.get(`https://countries-2022.herokuapp.com/countries/${id}`)
+        axios.get(`${API_URL}/countries/${id}`)
             .then(response => response.data)
             .then((recurso) => {
                 dispatch(
@@ -66,7 +68,7 @@ export function getCountryDetail(id) {
 
 export const addTouristActivities = (object) => {
     return (dispatch) => {
-        axios.post(`https://countries-2022.herokuapp.com/activities`, object)
+        axios.post(`${API_URL}/activities`, object)
             .then(response => response.data)
             .then((recurso) => {
                 dispatch(
@@ -84,7 +86,7 @@ export const addTouristActivities = (object) => {
 
 export function getTouristActivities() {
     return (dispatch) => {
-        axios.get(`https://countries-2022.herokuapp.com/activities`)
+        axios.get(`${API_URL}/activities`)
             .then(response => response.data)
             .then((recurso) => {
                 dispatch(
