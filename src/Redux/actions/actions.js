@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {GET_COUNTRIES, FILTER_COUNTRIES, ORDER_COUNTRIES, GET_COUNTRY_DETAIL, ADD_TOURIST_ACTIVITIES, GET_TOURIST_ACTIVITIES} from '../action-types/actionsTypes.js'
 
-const API_URL = process.env.API_URL
+const API_URL = process.env.REACT_APP_API_URL
 
 export const getCountries = () => {
     return (dispatch) => {

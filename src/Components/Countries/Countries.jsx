@@ -77,8 +77,8 @@ export default function Countries() {
         </div> 
       :  currentCountries.map((paises) => {
         return (
-          <Link to={`/home/${paises.id}`}>
-            <div className={style.card} key = {paises.id}>
+          <Link to={`/home/${paises.id}`} key = {paises.id}>
+            <div className={style.card} >
                 <div>
 
                   <div className={style.flag}>
